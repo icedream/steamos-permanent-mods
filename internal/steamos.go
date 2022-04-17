@@ -78,7 +78,13 @@ func (steamos *SteamOS) ReinstallPartialPackages() (packageNames []string, err e
 	cmd := steamos.passthroughCommand("pacman", "-Qqk")
 	cmd.Stdout = b
 	if err = cmd.Run(); err != nil {
-		return
+		if exitErr, ok := err.(*exec.ExitError); ok && exitErr.ProcessState.ExitCode() == 1 {
+			// this is an expected exit code, we can ignore that here
+			err = nil
+		} else {
+			// some different error happened
+			return
+		}
 	}
 
 	br := bufio.NewReader(b)
