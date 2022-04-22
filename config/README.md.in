@@ -1,6 +1,6 @@
 # SteamOS permanent modification scripts directory
 
-This directory is scanned by steamos-permanent-mods to modify your SteamOS copy on
+This directory is scanned by @PACKAGE@ to modify your SteamOS copy on
 each update. Scanning does not happen recursively, and all scripts must end with
 `.sh`.
 

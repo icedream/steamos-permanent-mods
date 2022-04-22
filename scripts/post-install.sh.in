@@ -340,10 +340,10 @@ run() {
 
 # if there is a default variables file, read it to make values available to user
 # scripts
-if [ -f /usr/local/etc/default/steamos-permanent-mods ]
+if [ -f @sysconfdir@/default/@PACKAGE@ ]
 then
-    echo "Loading values from" /usr/local/etc/default/steamos-permanent-mods >&2
-    . /usr/local/etc/default/steamos-permanent-mods
+    echo "Loading values from" @sysconfdir@/default/@PACKAGE@ >&2
+    . @sysconfdir@/default/@PACKAGE@
 fi
 
 while IFS= read -r -d $'\0' file; do
@@ -355,19 +355,19 @@ while IFS= read -r -d $'\0' file; do
     )
 done < <(
     # only scan directly in config dir, do not recurse
-    find /usr/local/etc/steamos-permanent-mods -mindepth 1 -maxdepth 1 -name '*.sh' \( -type f -or -type l \) -print0 |\
+    find @sysconfsubdir@ -mindepth 1 -maxdepth 1 -name '*.sh' \( -type f -or -type l \) -print0 |\
     sort -z
 )
 
 ###
 
 # Configure our post-install hook in rauc
-echo "Installing" steamos-permanent-mods "and user scripts…" >&2
+echo "Installing" @PACKAGE@ "and user scripts…" >&2
 run --write sed -i 's,post-install=\(.\+\),#post-install=\1\npost-install='"${BASH_SOURCE[0]}"',g' /etc/rauc/system.conf
 tar -c -C / \
     "${BASH_SOURCE[0]}" \
-    /usr/local/share/steamos-permanent-mods \
-    /usr/local/lib/steamos-permanent-mods \
-    /usr/local/etc/steamos-permanent-mods \
+    @datasubdir@ \
+    @libsubdir@ \
+    @sysconfsubdir@ \
     |\
 run --write tar -x -v -C /

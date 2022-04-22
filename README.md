@@ -28,3 +28,18 @@ software.
 ## How to install?
 
 *Work in progress, more info soon.*
+
+### From Git/GitHub source archive
+
+    ./autogen.sh
+    ./configure [--options…]
+    make
+
+To install to system run `make install` as `root` user.
+
+### From source distribution archive
+
+    ./configure [--options…]
+    make
+
+To install to system run `make install` as `root` user.
