@@ -38,9 +38,42 @@ software.
 
 To install to system run `make install` as `root` user.
 
+Afterwards, follow the "Manual setup" section below.
+
 ### From source distribution archive
 
     ./configure [--options…]
     make
 
 To install to system run `make install` as `root` user.
+
+Afterwards, follow the "Manual setup" section below.
+
+### Manual setup
+
+You will have to manually edit the file `/etc/rauc/system.conf` as follows:
+
+```diff
+-post-install=/usr/lib/rauc/post-install.sh
++post-install=/usr/local/lib/steamos-permanent-mods/post-install.sh
+```
+
+From here onwards new SteamOS updates will run this app and it will copy itself
+and all configuration over to the new rootfs.
+
+Then go to `/usr/local/etc/steamos-permanent-mods/` and read the `README.md`
+file there for more information. You can start using some of the shipped example
+scripts by symlinking them, for example this would enable the two scripts to
+restore all stripped files and enable pacman and yay to be fully usable:
+
+    ln -s ../../share/steamos-permanent-mods/examples/00-pacman.sh
+    ln -s ../../share/steamos-permanent-mods/examples/10-pacman-unstrip.sh
+
+I highly encourage you to explore the code of the shipped scripts since there is
+a lot of included commentary.
+
+If you want to immediately apply these scripts, run the steamos-atomupd-client
+command that is referenced in the aforementioned readme file:
+
+    /usr/sbin/steamos-atomupd-client \
+        --manifest /usr/share/steamos-update/manifest-0.json -d
