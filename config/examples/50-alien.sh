@@ -11,6 +11,13 @@
 #
 
 ##############################################################################
+# Variables you can set in @sysconfdir@/default/@PACKAGE@
+
+# Whether to remove the kernel command line parameter to rotate the screen
+# 0=no (default), 1=yes
+: "${GRUB_REMOVE_FBCON_ROTATE:-0}"
+
+##############################################################################
 # Variables set by PCI hardware detection code below
 
 # Whether we got the Deck's Van Gogh GPU.
@@ -98,6 +105,16 @@ then
         /etc/default/grub \
         /etc/default/grub-legacy \
         /etc/default/grub-steamos
+
+    if [ "${GRUB_REMOVE_FBCON_ROTATE}" -ne 0 ]
+    then
+        echo "Removing fbcon=rotate:1 as configured" >&2
+        run --write sed -i \
+            -e 's,fbcon=rotate:1 \?\+,,g' \
+            /etc/default/grub \
+            /etc/default/grub-legacy \
+            /etc/default/grub-steamos
+    fi
 
     run --write update-grub
 

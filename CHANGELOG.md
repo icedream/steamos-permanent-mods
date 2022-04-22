@@ -14,6 +14,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Users can now set `GRUB_NO_COPY_CONFIG=1` in
   /etc/default/steamos-permanent-mods to skip copying grub configuration before
   update-grub in 90-grub.sh example user script.
+- Users can now set `GRUB_REMOVE_FBCON_ROTATE=1` in
+  /etc/default/steamos-permanent-mods to remove the kernel commandline parameter
+  that causes display rotation to occur.
 
 ## [0.0.1] - 2022-04-22
 
