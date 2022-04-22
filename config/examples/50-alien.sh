@@ -104,6 +104,7 @@ then
     run --write pacman -S --noconfirm open-vm-tools
 
 elif [ "$virtualbox" -ne 0 ]
+then
     # Install virtualbox-guest-utils for VirtualBox
     # TODO - this is yet untested
     echo "We are running in VirtualBox, installing virtualbox-guest-utils…" >&2
