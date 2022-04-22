@@ -10,8 +10,13 @@ AUR packages.
 
 ## Features
 
-- Unstrips SteamOS with all the package files that Valve removed to save space
-- Will copy over your modifications to the OS across updates
+User scripts are shipped with the software to automatically do these things:
+
+- Enable SSH server
+- Enable pacman and yay to work properly
+- Restore development files necessary to compile software for SteamOS/Steam Deck
+- Make SteamOS support non-Deck hardware
+- Install SteamOS Homebrew Plugin Loader development version
 
 ## How is it done?
 
