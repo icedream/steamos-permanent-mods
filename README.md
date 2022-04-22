@@ -58,6 +58,10 @@ You will have to manually edit the file `/etc/rauc/system.conf` as follows:
 +post-install=/usr/local/lib/steamos-permanent-mods/post-install.sh
 ```
 
+Now restart rauc by running
+
+    sudo systemctl restart rauc
+
 From here onwards new SteamOS updates will run this app and it will copy itself
 and all configuration over to the new rootfs.
 
