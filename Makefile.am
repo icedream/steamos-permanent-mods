@@ -1,6 +1,6 @@
 SUBDIRS = config config/examples scripts
 
-dist_doc_DATA = KNOWN_BUGS.md README.md
+dist_doc_DATA = CHANGELOG.md KNOWN_BUGS.md README.md
 
 EXTRA_DIST = VERSION
 
