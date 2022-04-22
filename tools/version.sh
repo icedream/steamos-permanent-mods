@@ -6,4 +6,4 @@
 # Author: Carl Kittelberger <icedream@icedream.pw>
 #
 
-git describe --tags --long 2>/dev/null || printf '0.0.0'
+(git describe --tags 2>/dev/null || printf '0.0.0') | tr -d 'v\n'
