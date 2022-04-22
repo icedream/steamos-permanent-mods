@@ -9,7 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added code to detect and install/configure packages for VirtIO GPU in 50-alien.sh example user script.
+- Added code to detect and install/configure packages for VirtIO GPU in
+  50-alien.sh example user script.
+- Users can now set `GRUB_NO_COPY_CONFIG=1` in
+  /etc/default/steamos-permanent-mods to skip copying grub configuration before
+  update-grub in 90-grub.sh example user script.
 
 ## [0.0.1] - 2022-04-22
 
