@@ -18,6 +18,11 @@
 # 0=install linux-firmware, 1=keep linux-firmware-neptune
 deck_gpu=1
 
+# Whether we got a VirtIO GPU.
+# 0=do nothing, 1=install qemu-guest-agent and spice-vdagent
+# TODO - make a separate flag variable for detecting guest agent socket
+virtio_gpu=0
+
 # Whether we got a VMware GPU.
 # 0=do nothing, 1=install open-vm-tools
 vmware=0
@@ -58,6 +63,11 @@ do
             deck_gpu=0
             vmware=1
             ;;
+        1af4:1050)
+            # QEMU/VirtIO GPU
+            deck_gpu=0
+            virtio_gpu=1
+            ;;
         # ????:????)
         #     # TODO - VirtualBox GPU. Leaving this as an exercise to whoever wants to do this. :-)
         #     deck_gpu=0
@@ -88,6 +98,7 @@ then
         /etc/default/grub \
         /etc/default/grub-legacy \
         /etc/default/grub-steamos
+
     run --write update-grub
 
     # Fix Steam's Deck UI not stretching to whole resolution on external HDMI
@@ -102,6 +113,14 @@ then
     # Install open-vm-tools for VMware
     echo "We are running in VMware, installing open-vm-tools…" >&2
     run --write pacman -S --noconfirm open-vm-tools
+
+elif [ "$virtio_gpu" -ne 0 ]
+then
+    # Install qemu-guest-agent and spice-vdagent
+    echo "We are running on a VirtIO GPU, assuming QEMU, installing qemu-guest-agent and spice-vdagent…" >&2
+    run --write pacman -S --noconfirm qemu-guest-agent spice-vdagent
+
+    run --write systemctl enable qemu-guest-agent.service
 
 elif [ "$virtualbox" -ne 0 ]
 then

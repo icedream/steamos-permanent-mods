@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased - TBA
 
+### Added
+
+- Added code to detect and install/configure packages for VirtIO GPU in 50-alien.sh example user script.
+
 ## [0.0.1] - 2022-04-22
 
 ### Added
