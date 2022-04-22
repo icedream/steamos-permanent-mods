@@ -1,6 +1,8 @@
 ###
 # PROJECT
 
+/VERSION
+
 config/README.md
 scripts/post-install.sh
 
