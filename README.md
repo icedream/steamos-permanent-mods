@@ -1,9 +1,10 @@
 # Steam Mutator
 
-**Disclaimer:** I sometimes manually test this against a MiniForums UM700 and
-virtualization via QEMU and VMware. This is just an experiment and nothing to be
-considered stable in any shape or form, run this if you feel adventurous and you
-expect to have your OS broken for no good reason.
+**Disclaimer:** I test this against a real Steam Deck and sometimes manually
+test this against a MiniForums UM700 and virtualization via QEMU and VMware.
+This is just an experiment and nothing to be considered stable in any shape or
+form, run this if you feel adventurous and you expect to have your OS broken for
+no good reason.
 
 This tool allows for SteamOS to be used with persistent system modifications and
 AUR packages.
