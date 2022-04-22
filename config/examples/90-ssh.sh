@@ -9,8 +9,15 @@
 # Author: Carl Kittelberger <icedream@icedream.pw>
 #
 
-# Install openssh package (-S openssh) but only if not installed yet (--needed)
-run --write pacman -S --noconfirm --needed openssh
+if systemctl is-enabled sshd >/dev/null 2>/dev/null
+then
+    echo "Reenabling SSH as it is currently enabled…" >&2
 
-# Enable the service
-run --write systemctl enable sshd.service
+    # Install openssh package (-S openssh) but only if not installed yet (--needed)
+    run --write pacman -S --noconfirm --needed openssh
+
+    # Enable the service
+    run --write systemctl enable sshd.service
+else
+    echo "SSH currently disabled, leaving as-is." >&2
+fi
