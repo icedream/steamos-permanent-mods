@@ -76,6 +76,8 @@ done < <(lspci -nmm)
 # (`yes y` confirms the conflict replacement prompt to nuke linux-firmware-jupiter)
 if [ "$deck_gpu" -eq 0 ]
 then
+    echo "This is a non-Deck GPU, replacing linux-firmware-neptune with linux-firmware…" >&2
+
     yes y | run --write pacman -S linux-firmware
 
     # Remove specific linux kernel parameters that SteamOS sets for the Deck hardware
@@ -91,21 +93,25 @@ then
     # Fix Steam's Deck UI not stretching to whole resolution on external HDMI
     # NOTE - this has to be after reinstalling gamescope, otherwise this gets overwritten
     run --write sed -i 's,"-steamos3" ,,' /usr/bin/gamescope-session
+else
+    echo "Skipping linux-firmware-neptune package replacement, we seem to have a Deck GPU." >&2
 fi
 
-# Install open-vm-tools for VMware
 if [ "$vmware" -ne 0 ]
 then
+    # Install open-vm-tools for VMware
+    echo "We are running in VMware, installing open-vm-tools…" >&2
     run --write pacman -S --noconfirm open-vm-tools
-fi
 
-# Install virtualbox-guest-utils for VirtualBox
-# TODO - this is yet untested
-if [ "$virtualbox" -ne 0 ]
-then
+elif [ "$virtualbox" -ne 0 ]
+    # Install virtualbox-guest-utils for VirtualBox
+    # TODO - this is yet untested
+    echo "We are running in VirtualBox, installing virtualbox-guest-utils…" >&2
     run --write pacman -S --noconfirm virtualbox-guest-utils
     run --write systemctl enable vboxservice.service
 
     # replicate the Deck's original screen resolution
     run --write VBoxManage setextradata "Arch Linux" "CustomVideoMode1" "1280x800x24"
+else
+    echo "Skipping specific hardware package installation." >&2
 fi
