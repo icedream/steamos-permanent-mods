@@ -16,6 +16,7 @@ run systemd-tmpfiles --create --boot -E \
 
 # Initialize pacman keyring
 run --write pacman-key --init
+run --slot=self pacman-key -e | run --write pacman-key --import
 run --write pacman-key --populate archlinux --populate holo
 
 # Reinstall fakeroot for makepkg to work
