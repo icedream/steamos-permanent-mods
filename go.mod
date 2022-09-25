@@ -1,6 +1,6 @@
 module github.com/icedream/steammutator
 
-go 1.18
+go 1.19
 
 require gopkg.in/alecthomas/kingpin.v2 v2.2.6
 
