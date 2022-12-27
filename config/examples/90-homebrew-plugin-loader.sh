@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #
-# This really just runs the usual install script for Steam Deck Homebrew Plugin
-# Loader (nightly version) straight from the GitHub.
+# This really just runs the usual install script for Decky Loader (stable
+# version) straight from the GitHub.
 #
 # If you installed the stable version of Steam Deck Homebrew Plugin Loader you
 # do NOT need this. The difference is the nightly version will want to install
@@ -13,5 +13,5 @@
 # Author: Carl Kittelberger <icedream@icedream.pw>
 #
 
-curl -L https://github.com/SteamDeckHomebrew/PluginLoader/raw/main/dist/install_nightly.sh |\
+curl -L https://github.com/SteamDeckHomebrew/decky-loader/raw/main/dist/install_release.sh |\
     run --write sh
