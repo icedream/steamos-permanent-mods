@@ -80,4 +80,4 @@ If you want to immediately apply these scripts, run the steamos-atomupd-client
 command that is referenced in the aforementioned readme file:
 
     /usr/sbin/steamos-atomupd-client \
-        --manifest /usr/share/steamos-update/manifest-0.json -d
+        --manifest /etc/steamos-atomupd/manifest.json -d
