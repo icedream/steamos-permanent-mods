@@ -54,4 +54,4 @@ for name in core community extra holo jupiter kde-unstable multilib testing; do
 done
 
 # Reinstall fakeroot for makepkg to work
-run --write pacman -S --noconfirm fakeroot
+run --write pacman -Sy --noconfirm fakeroot
