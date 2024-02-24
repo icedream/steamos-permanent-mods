@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.4] - 2024-02-24
+
+### Fixed
+
+- Fix pacman breakage due to faulty keyring transfer.
+- Fix additional internal commands being printed in stderr which may confuse
+  during debugging.
+
+### Changed
+
+- Switch to Decky Loader release install script.
+
+### Removed
+
+- Removed pacman keyring transfer. This is only relevant for installs with
+  custom installed keyrings, normal installation of Arch or Holo packages will
+  not be affected.
+
 ## [0.0.3] - 2023-11-23
 
 ### Fixed
@@ -31,6 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added post-hook script to reproduce modifications to the system through user scripts.
 - Added lots of documentation.
 
+[0.0.4]: https://github.com/icedream/steamos-permanent-mods/releases/tag/v0.0.4
 [0.0.3]: https://github.com/icedream/steamos-permanent-mods/releases/tag/v0.0.3
 [0.0.2]: https://github.com/icedream/steamos-permanent-mods/releases/tag/v0.0.2
 [0.0.1]: https://github.com/icedream/steamos-permanent-mods/releases/tag/v0.0.1
