@@ -12,7 +12,7 @@ if run --slot=self pacman -Qq kdeconnect >/dev/null 2>/dev/null
 then
     # Do the same on the new install
     echo "Reinstalling KDE Connect as it is currently installed…" >&2
-    run --write yay -S --noconfirm kdeconnect
+    run --write pacman -S --noconfirm kdeconnect
 else
     echo "KDE Connect was not previously manually installed, skipping." >&2
 fi
