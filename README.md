@@ -33,7 +33,7 @@ software.
 ### From Git/GitHub source archive
 
     ./autogen.sh
-    ./configure [--options…]
+    ./configure --prefix=/usr/local --sysconfdir=/etc [--options…]
     make
 
 To install to system run `make install` as `root` user.
@@ -42,7 +42,7 @@ Afterwards, follow the "Manual setup" section below.
 
 ### From source distribution archive
 
-    ./configure [--options…]
+    ./configure --prefix=/usr/local --sysconfdir=/etc [--options…]
     make
 
 To install to system run `make install` as `root` user.
