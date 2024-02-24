@@ -324,7 +324,7 @@ run() {
     then
         if [ "$device" = "$ROOT_DEVICE_SELF" ] && [ "$mountpath" = "/" ]
         then
-            # We are booted on the old SteamOS copy at the moment, un directly
+            # We are booted on the old SteamOS copy at the moment, run directly
             "$@"
         else
             # Assume prepared chroot, run command in there
