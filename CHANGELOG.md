@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.5] - 2024-02-24
+
+### Fixed
+
+- Fix OS of current install instead of new install being used to patch
+  repositories in pacman.conf.
+
 ## [0.0.4] - 2024-02-24
 
 ### Fixed
@@ -49,6 +56,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added post-hook script to reproduce modifications to the system through user scripts.
 - Added lots of documentation.
 
+[0.0.5]: https://github.com/icedream/steamos-permanent-mods/releases/tag/v0.0.5
 [0.0.4]: https://github.com/icedream/steamos-permanent-mods/releases/tag/v0.0.4
 [0.0.3]: https://github.com/icedream/steamos-permanent-mods/releases/tag/v0.0.3
 [0.0.2]: https://github.com/icedream/steamos-permanent-mods/releases/tag/v0.0.2
