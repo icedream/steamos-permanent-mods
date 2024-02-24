@@ -4,8 +4,8 @@ import (
 	"log"
 	"os"
 
+	"github.com/alecthomas/kingpin/v2"
 	"github.com/icedream/steammutator/internal"
-	"gopkg.in/alecthomas/kingpin.v2"
 )
 
 var (
