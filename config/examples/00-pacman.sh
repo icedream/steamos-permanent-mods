@@ -34,7 +34,7 @@ patch_repo() {
   if [ "$version" = "auto" ]; then
     version="rel"
     VERSION_ID=
-    eval "$(cat /etc/os-release | grep '^VERSION_ID=')"
+    eval "$(run cat /etc/os-release | grep '^VERSION_ID=')"
     if [ "$VERSION_ID" != "" ]; then
       for v in "${VERSION_ID}" "${VERSION_ID%.*}"; do
         if curl --fail -sLIo /dev/null "$steamdeck_packages_base_url/$name-$v/os/$(uname -m)/$name-$v.db"; then
