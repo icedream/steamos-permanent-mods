@@ -16,7 +16,7 @@ run systemd-tmpfiles --create --boot -E \
 
 # Initialize pacman keyring
 run --write pacman-key --init
-run --slot=self pacman-key -e | run --write pacman-key --import
+# TODO - transfer existing pacman keyring from self to other
 run --write pacman-key --populate archlinux --populate holo
 
 # Fix up pacman repo configurations
