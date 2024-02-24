@@ -65,10 +65,10 @@ Now restart rauc by running
 From here onwards new SteamOS updates will run this app and it will copy itself
 and all configuration over to the new rootfs.
 
-Then go to `/usr/local/etc/steamos-permanent-mods/` and read the `README.md`
-file there for more information. You can start using some of the shipped example
-scripts by symlinking them, for example this would enable the two scripts to
-restore all stripped files and enable pacman and yay to be fully usable:
+Then go to `/etc/steamos-permanent-mods/` and read the `README.md` file there
+for more information. You can start using some of the shipped example scripts by
+symlinking them, for example this would enable the two scripts to restore all
+stripped files and enable pacman and yay to be fully usable:
 
     ln -s ../../share/steamos-permanent-mods/examples/00-pacman.sh
     ln -s ../../share/steamos-permanent-mods/examples/10-pacman-unstrip.sh

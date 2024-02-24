@@ -18,7 +18,7 @@ due to such mistakes.
 
 You can test your scripts by forcing an update with this command as `root` user:
 
-    /usr/sbin/steamos-atomupd-client --manifest /usr/share/steamos-update/manifest-0.json
+    /usr/sbin/steamos-atomupd-client --manifest /etc/steamos-atomupd/manifest.json
 
 This will trigger a download and install of the latest SteamOS stable version.
 Add `--variant=steamdeck-beta` for Beta and `-d` to see all of the update
