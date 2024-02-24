@@ -214,12 +214,14 @@ run() {
         esac
     done
 
-    if [ "$DRY_RUN" -ne 0 ] && [ "$slot" = "$UPDATED_SLOT" ]
-    then
-        echo "* Would run on slot $slot, skipping due to --dry-run:" "$@" >&2
-        return
-    else
-        echo "* Running on slot $slot:" "$@" >&2
+    if [ "${NO_PRINT_COMMAND:-0}" -eq 0 ]; then
+        if [ "$DRY_RUN" -ne 0 ] && [ "$slot" = "$UPDATED_SLOT" ]
+        then
+            echo "* Would run on slot $slot, skipping due to --dry-run:" "$@" >&2
+            return
+        else
+            echo "* Running on slot $slot:" "$@" >&2
+        fi
     fi
 
     case "$slot" in
@@ -288,7 +290,7 @@ run() {
     # see /usr/lib/systemd/system/steamos-offload.target.wants/*.mount
     if [ "${SKIP_OFFLOAD:-0}" -eq 0 ]
     then
-        for offloadpath in $(SKIP_OFFLOAD=1 run sh -c 'grep -hPo '"'"'Where=\K.+'"'"' /usr/lib/systemd/system/steamos-offload.target.wants/*.mount') \
+        for offloadpath in $(SKIP_OFFLOAD=1 NO_PRINT_COMMAND=1 run sh -c 'grep -hPo '"'"'Where=\K.+'"'"' /usr/lib/systemd/system/steamos-offload.target.wants/*.mount') \
     ;
         do
             # Since it's a bad idea to modify currently mounted shared stuff from the new image, use a tmpfs as a stub
