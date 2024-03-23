@@ -3,7 +3,7 @@ module github.com/icedream/steammutator
 go 1.19
 
 require (
-	github.com/Jguer/go-alpm/v2 v2.2.1
+	github.com/Jguer/go-alpm/v2 v2.2.2
 	github.com/alecthomas/kingpin/v2 v2.4.0
 	github.com/ssoroka/slice v0.0.0-20220402005549-78f0cea3df8b
 )
