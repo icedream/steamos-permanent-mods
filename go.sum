@@ -11,6 +11,8 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/ssoroka/slice v0.0.0-20220402005549-78f0cea3df8b h1:nDFJ1KYD1CSRP3nHtkvCH+ztuoz+QW++OvCLgpS6kQE=
 github.com/ssoroka/slice v0.0.0-20220402005549-78f0cea3df8b/go.mod h1:l4Ov7Zo7X3/MCC+pefg/lN7x8X8FKb1Ub7oxosKKJa0=
+github.com/ssoroka/slice v0.0.0-20250403172633-21f6adb6f9a4 h1:3+lKnHMjprePmj6b5FMgYzbTD8p7kIEuEdvvIOLkCVk=
+github.com/ssoroka/slice v0.0.0-20250403172633-21f6adb6f9a4/go.mod h1:l4Ov7Zo7X3/MCC+pefg/lN7x8X8FKb1Ub7oxosKKJa0=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.4.0/go.mod h1:j7eGeouHqKxXV5pUuKE4zz7dFj8WfuZ+81PSLYec5m4=
 github.com/stretchr/testify v1.8.4 h1:CcVxjf3Q8PM0mHUKJCdn+eZZtm5yQwehR5yeSVQQcUk=
