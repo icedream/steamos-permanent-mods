@@ -4,7 +4,7 @@
 # Install KDE Connect as a system package. (Seemingly there's no Flatpak for
 # this?)
 #
-# Author: Carl Kittelberger
+# Author: Carl Kittelberger <icedream@icedream.pw>
 #
 
 # Check if user already installed KDE Connect as a system package

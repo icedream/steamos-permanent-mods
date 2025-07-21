@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #
 # Copy over locale files, useful for Desktop mode since quite a few apps depend
 # on this to be set properly (time display, currencies, even displayed language
